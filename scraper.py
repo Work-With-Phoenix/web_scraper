@@ -14,8 +14,8 @@ headers = {
 
 productlinks = [] 
   
-for x in range (1):
-    d = requests.get(f'https://www.jumia.co.ke/android-phones/xiaomi/?page={x}#catalog-listing')
+for x in range (1,3):
+    d = requests.get(f'https://www.jumia.co.ke/tcl/?q=tcl+smart+android+tv&page={x}#catalog-listing')
     soup = BeautifulSoup(d.content, 'lxml')
 
     cataloglist = soup.find_all('article', class_='prd')
@@ -35,6 +35,7 @@ for link in productlinks:
     currentprice = soup.find('span', class_="-b").text.strip()
     originalprice = soup.find('span', class_='-tal -gy5 -lthr -fs16').text.strip()
     discount = soup.find('span', class_='tag _dsct _dyn -mls').text.strip()
+    features = soup.find('article', class_='-pvs').text.strip()
 
 
     product = {
@@ -43,13 +44,14 @@ for link in productlinks:
         'reviews':reviews,
         'currentprice':currentprice,
         'discount':discount,
-        'originalprice':originalprice
+        'originalprice':originalprice,
+        'features':features
     }
 
     productlist.append(product)
     print('Saving', product)
 
-df = pd.DataFrame(productlist, columns=['name', 'rating', 'reviews','originalprice', 'discount', 'currentprice', ])
+df = pd.DataFrame(productlist, columns=['name', 'rating', 'reviews','originalprice', 'discount', 'currentprice', 'features' ])
 print(df)
 
-df.to_json(r'xiaomi.json', orient='records')
+df.to_json(r'data/tvs.json', orient='records')
