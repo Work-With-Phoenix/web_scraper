@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler</title>
+    <!-- tailwind css -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container w-full mx-auto mt-10">
+        <div class="py-8 text-4xl font-bold text-center">
+            <h1>Product Search Engine</h1>
+        </div>
+        <!-- search -->
+        <div class="mt-6">
+            
+            <input type="text" id="search" placeholder="Search product name, discount, price ..." class="w-full px-6 py-2 bg-white border-b border-gray-200 rounded focus:outline-none">
+        </div>
+            
+        <!-- show content -->
+        <div id="match-list" class="w-full mt-4 "></div>
+    </div>
+      
+      <script src="./js/app.js" async defer></script>
+</body>
+</html>
