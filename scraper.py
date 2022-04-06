@@ -33,8 +33,8 @@ for link in productlinks:
     rating = soup.find('div', class_='stars').text.strip()
     reviews = soup.find('a', class_='-plxs _more').text.strip()
     currentprice = soup.find('span', class_="-b").text.strip()
-    originalprice = soup.find('span', class_='-tal -gy5 -lthr -fs16').text.strip()
-    discount = soup.find('span', class_='tag _dsct _dyn -mls').text.strip()
+    # originalprice = soup.find('span', class_='-tal -gy5 -lthr -fs16').text.strip()
+    # discount = soup.find('span', class_='tag _dsct _dyn -mls').text.strip()
     features = soup.find('article', class_='-pvs').text.strip()
 
 
@@ -43,8 +43,8 @@ for link in productlinks:
         'rating':rating,
         'reviews':reviews,
         'currentprice':currentprice,
-        'discount':discount,
-        'originalprice':originalprice,
+        # 'discount':discount,
+        # 'originalprice':originalprice,
         'features':features
     }
 
